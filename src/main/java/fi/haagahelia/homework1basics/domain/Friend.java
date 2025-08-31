@@ -1,10 +1,13 @@
 package fi.haagahelia.homework1basics.domain;
 
-public class Student {
+public class Friend {
     private String firstName;
     private String lastName;
 
-    public Student(String firstName, String lastName) {
+    public Friend() {
+    }
+
+    public Friend(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -13,7 +16,15 @@ public class Student {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
