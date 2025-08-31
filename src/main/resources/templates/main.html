@@ -18,6 +18,13 @@
         </tbody>
     </table>
     <br>
-    <p><a th:href="@{/add}">Add friend</a></p>
+    <h1>Add new friend to list</h1>
+    <form action="#" th:action="@{/}" th:object="${friend}" method="post">
+        <label>First name:</label>
+        <input type="text" th:field="*{firstName}" />
+        <label>Last name:</label>
+        <input type="text" th:field="*{lastName}" />
+        <input type="submit" value="Add Friend">
+    </form>
 </body>
 </html>

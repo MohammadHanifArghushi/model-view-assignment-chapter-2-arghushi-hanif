@@ -12,32 +12,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import fi.haagahelia.homework1basics.domain.Friend;
 
 @Controller
-public class FriendController {
+public class CombinedController {
 
     private static List<Friend> friends = new ArrayList<>();
 
-    @GetMapping("/index")
-    public String showFriendList(Model model) {
-
+    @GetMapping("/")
+    public String showMainPage(Model model) {
         if (friends.isEmpty()) {
             friends.add(new Friend("Minna", "Pellikka"));
             friends.add(new Friend("Tanja", "Bergius"));
             friends.add(new Friend("Jukka", "Juslin"));
         }
-
         model.addAttribute("friends", friends);
-        return "friendlist";
-    }
-
-    @GetMapping("/add")
-    public String showAddFriendForm(Model model) {
         model.addAttribute("friend", new Friend());
-        return "addfriend";
+        return "main";
     }
 
-    @PostMapping("/add")
-    public String saveFriend(@ModelAttribute Friend friend) {
+    @PostMapping("/")
+    public String addFriend(@ModelAttribute Friend friend) {
         friends.add(friend);
-        return "redirect:/index";
+        return "redirect:/";
     }
 }
